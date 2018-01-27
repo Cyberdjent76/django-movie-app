@@ -19,7 +19,7 @@
     		<nav class="nav">
     			<div class="container">
     				<div class="nav__menu">
-    					<a class="nav__header" href="/">Clever Movie</a>
+    					<a class="nav__header" href="/">Denis's Movie Database</a>
                         <div class="col-md-5 pull-right">
                         	<form name="search" action="" class="form-inline">
                         		<div class="form-group">
@@ -53,8 +53,9 @@
                             <div class="movies__item">
                                 <i class="movies__item-star fa fa-star hide"></i>
                                 <p class="movies__item-rating hide">{{ movie.fields.Rating }}/10</p>
+                                <a href="{{ movie.fields.Links }}" target="_blank">View Movie Link</a>
                                 <button type="button" class="movies__item-expander hide" data-toggle="modal" data-target="#modal-{{movie.id}}">View Details</button>
-                            	<img class="movies__item-image" src="{{ movie.fields.Pictures.0.url }}" alt="" />
+                            	<img class="movies__item-image" src="{{ movie.fields.Picture.0.url }}" alt="" />
                                 <div class="movies__item-title">
                                 	<p>{{ movie.fields.Name }}</p>
                                 </div>
