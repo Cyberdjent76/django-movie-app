@@ -19,7 +19,7 @@
     		<nav class="nav">
     			<div class="container">
     				<div class="nav__menu">
-    					<a class="nav__header" href="/">Clever Movie</a>
+    					<a class="nav__header" href="/">Denis's Movie Database</a>
                         <div class="col-md-5 pull-right">
                         	<form name="search" action="" class="form-inline">
                         		<div class="form-group">
@@ -36,6 +36,14 @@
 
             <section class="result">
             	<div class="container">
+                    {% if messages %}
+                    	{% for message in messages %}
+                    		<div class="alert alert-{{ message.tags }}">
+                            	<a href="#" class="close" data-dismiss="alert">&times;</a>
+                                {{ message }}
+                    		</div>
+                    	{% endfor %}
+                    {% endif %}
             		<div class="movies">
             			{% for movie in search_result %}
                             <div class="movies__item">
@@ -45,6 +53,7 @@
                             	<img class="movies__item-image" src="{{ movie.fields.Pictures.0.url }}" alt="" />
                                 <div class="movies__item-title">
                                 	<p>{{ movie.fields.Name }}</p>
+                                    <a href="{{ movie.fields.Links }}" target="_blank">Link</a>
                                 </div>
                             </div>
 
